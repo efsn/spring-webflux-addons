@@ -15,28 +15,21 @@ plugins {
     id("org.springframework.boot") version springBootVersion
 }
 
-apply(plugin = "java-library")
-apply(plugin = "kotlin")
-apply(plugin = "org.jetbrains.kotlin.plugin.spring")
-apply(plugin = "io.spring.dependency-management")
-apply(plugin = "org.springframework.boot")
+// apply(plugin = "java-library")
+// apply(plugin = "kotlin")
+// apply(plugin = "org.jetbrains.kotlin.plugin.spring")
+// apply(plugin = "org.springframework.boot")
 apply(plugin = "io.spring.dependency-management")
 apply(from = rootProject.file("gradle/ktlint.gradle.kts"))
 
 group = "cn.elmi.spring.webflux"
-version = "1.0-SNAPSHOT"
+version = "1.0.0-SNAPSHOT"
 
 repositories {
     mavenLocal()
     mavenCentral()
     jcenter()
 }
-
-val compileKotlin: KotlinCompile by tasks
-val compileTestKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions.jvmTarget = "1.8"
-compileKotlin.kotlinOptions.freeCompilerArgs = listOf("-Xjsr305=strict")
-compileTestKotlin.kotlinOptions.jvmTarget = "1.8"
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
@@ -67,18 +60,52 @@ the<DependencyManagementExtension>().apply {
     }
 }
 
-tasks.withType<BootJar> {
-    launchScript()
-}
+tasks {
+    withType<BootJar> {
+        launchScript()
+    }
+    withType<KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_1_8.toString()
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+        }
+    }
 
-tasks.test {
-    failFast = true
-    useJUnitPlatform()
-    testLogging {
-        events("passed", "skipped", "failed")
+    register<Jar>("sourcesJar"){
+        this.group = "build"
+        this.archiveClassifier.set("sources")
+        from(sourceSets.main.get().allSource)
+    }
+
+    test {
+        failFast = true
+        useJUnitPlatform()
+        testLogging {
+            events("passed", "skipped", "failed")
+        }
     }
 }
 
-tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions.jvmTarget = "1.8"
+publishing {
+    repositories {
+        maven {
+            name = "githubPackages"
+            url = uri("${project.findProperty("GITHUB_URI")}/${project.name}")
+            credentials {
+                username = project.findProperty("gpr.user") as String
+                password = project.findProperty("gpr.key") as String
+            }
+        }
+    }
+    afterEvaluate {
+        publications {
+            register<MavenPublication>("gpr") {
+                from(components["java"])
+                artifact(tasks["sourcesJar"])
+                pom {
+                    description.set("xx")
+                }
+            }
+        }
+    }
 }
