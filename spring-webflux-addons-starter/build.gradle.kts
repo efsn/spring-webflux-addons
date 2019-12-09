@@ -1,3 +1,5 @@
+import org.springframework.boot.gradle.tasks.bundling.BootJar
+
 plugins {
     `maven-publish`
 }
@@ -15,6 +17,9 @@ tasks {
     }
     named<Jar>("jar") {
         enabled = true
+    }
+    named<BootJar>("bootJar") {
+        enabled = false
     }
 }
 
