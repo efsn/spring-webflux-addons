@@ -25,6 +25,6 @@ jobs:
 
       - name: publish
         env:
-          GPR_USER: ${{secrets.username}}
-          GPR_TOKEN: ${{secrets.token}}
+          USERNAME: ${{secrets.username}}
+          PASSWORD: ${{secrets.token}}
         run: ./gradlew clean :spring-webflux-addons-starter:publish
