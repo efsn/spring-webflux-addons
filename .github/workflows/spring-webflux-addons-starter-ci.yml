@@ -18,12 +18,15 @@ jobs:
       - name: grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: build
+      - name: build spring-webflux-addons-starter
         env:
           ACCESS_TOKEN: ${{secrets.token}}
         run: ./gradlew clean :spring-webflux-addons-starter:build
 
-      - name: publish
+      - name: publish to github packages registry
+        with:
+          USERNAME: ${{secrets.username}}
+          PASSWORD: ${{secrets.token}}
         env:
           USERNAME: ${{secrets.username}}
           PASSWORD: ${{secrets.token}}
