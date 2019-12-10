@@ -24,9 +24,6 @@ jobs:
         run: ./gradlew clean :spring-webflux-addons-starter:build
 
       - name: publish to github packages registry
-        with:
-          USERNAME: ${{secrets.username}}
-          PASSWORD: ${{secrets.token}}
         env:
           USERNAME: ${{secrets.username}}
           PASSWORD: ${{secrets.token}}
