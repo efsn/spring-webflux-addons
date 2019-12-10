@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.elmi.web.reactive.configuration.TracingConfiguration
