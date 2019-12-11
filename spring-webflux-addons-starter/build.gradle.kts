@@ -29,12 +29,12 @@ publishing {
             name = "githubPackages"
             url = uri("${project.findProperty("GITHUB_URI")}/${rootProject.name}")
             credentials {
-                println(System.getenv("USERNAME"))
+                println(System.getenv("GITHUB_ACTOR"))
                 println("##########")
-                println(System.getenv("PASSWORD"))
+                println(System.getenv("GITHUB_TOKEN"))
 
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("PASSWORD")
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
             }
         }
     }
