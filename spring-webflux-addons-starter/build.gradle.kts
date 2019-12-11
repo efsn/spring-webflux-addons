@@ -33,8 +33,13 @@ publishing {
                 println("##########")
                 println(System.getenv("GITHUB_TOKEN"))
 
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
+                println(rootProject.findProperty("gpr.user"))
+                println(rootProject.findProperty("gpr.key"))
+
+                // username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR")
+                // password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
+                username="efsn"
+                password="9ca8d8821285d6ee0c80aa963f660cef5daa8b9c"
             }
         }
     }
