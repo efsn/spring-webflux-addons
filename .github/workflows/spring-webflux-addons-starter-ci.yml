@@ -22,8 +22,8 @@ jobs:
       - name: create gradle.properties
         run: |
           cat>gradle.properties<<EOF
-          GITHUB_ACTOR=$GITHUB_ACTOR
-          $GITHUB_TOKEN=$GITHUB_TOKEN
+          gpr.user=$GITHUB_ACTOR
+          gpr.key=$GITHUB_TOKEN
           EOF
 
       - name: test secrets
