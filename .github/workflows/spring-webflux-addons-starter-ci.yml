@@ -19,10 +19,16 @@ jobs:
         with:
           java-version: 1.8
 
+      - name: create gradle.properties
+        run: |
+          cat>gradle.properties<<EOF
+          GITHUB_ACTOR=$GITHUB_ACTOR
+          $GITHUB_TOKEN=$GITHUB_TOKEN
+          EOF
+
       - name: test secrets
         run: |
-          echo $GITHUB_ACTOR
-          echo $GITHUB_TOKEN
+          cat gradle.properties
 
       - name: grant execute permission for gradlew
         run: chmod +x gradlew
