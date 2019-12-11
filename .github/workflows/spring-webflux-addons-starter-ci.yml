@@ -23,8 +23,8 @@ jobs:
       - name: grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: build spring-webflux-addons-starter
+      - name: build artifact
         run: ./gradlew clean :spring-webflux-addons-starter:build
 
-      - name: publish to github packages registry
+      - name: publish artifact to gpr
         run: ./gradlew clean :spring-webflux-addons-starter:publish

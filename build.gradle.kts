@@ -64,6 +64,7 @@ subprojects {
             testLogging {
                 events("passed", "skipped", "failed")
             }
+            dependsOn(project.tasks.named("ktlint"))
         }
     }
 
