@@ -8,8 +8,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      GITHUB_ACTOR: ${{secrets.username}}
-      GITHUB_TOKEN: ${{secrets.token}}
+      GITHUB_ACTOR: ${{secrets.GITHUB_ACTOR}}
+      GITHUB_ACCESS_TOKEN: ${{secrets.GITHUB_ACCESS_TOKEN}}
 
     steps:
       - uses: actions/checkout@v1
@@ -19,17 +19,6 @@ jobs:
         with:
           java-version: 1.8
 
-      - name: create gradle.properties
-        run: |
-          cat>gradle.properties<<EOF
-          gpr.user=$GITHUB_ACTOR
-          gpr.key=$GITHUB_TOKEN
-          EOF
-
-      - name: test secrets
-        run: |
-          cat gradle.properties
-
       - name: grant execute permission for gradlew
         run: chmod +x gradlew
 
@@ -37,4 +26,4 @@ jobs:
         run: ./gradlew clean :spring-webflux-addons-starter:build
 
       - name: publish to github packages registry
-        run: ./gradlew clean :spring-webflux-addons-starter:publish --debug
+        run: ./gradlew clean :spring-webflux-addons-starter:publish

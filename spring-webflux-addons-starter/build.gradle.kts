@@ -26,20 +26,13 @@ tasks {
 publishing {
     repositories {
         maven {
+            val githubUrl = project.findProperty("GITHUB_URI") as String? ?: System.getenv("GITHUB_URL")
+
             name = "githubPackages"
-            url = uri("${project.findProperty("GITHUB_URI")}/${rootProject.name}")
+            url = uri("$githubUrl/${rootProject.name}")
             credentials {
-                println(System.getenv("GITHUB_ACTOR"))
-                println("##########")
-                println(System.getenv("GITHUB_TOKEN"))
-
-                println(rootProject.findProperty("gpr.user"))
-                println(rootProject.findProperty("gpr.key"))
-
-                // username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR")
-                // password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
-                username="efsn"
-                password="9ca8d8821285d6ee0c80aa963f660cef5daa8b9c"
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_ACCESS_TOKEN")
             }
         }
     }
