@@ -1,11 +1,11 @@
-name: spring-webflux-addons-starter-ci
+name: Release
 on:
-  push:
-    branches:
-      - master
-      - 'releases/*'
+  create:
+    tags:
+      - *
+
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     env:
       GITHUB_URL: ${{secrets.GITHUB_URL}}
@@ -26,5 +26,11 @@ jobs:
       - name: build artifact
         run: ./gradlew clean :spring-webflux-addons-starter:build
 
+      - name: create release on github
+        uses: elgohr/Github-Release-Action@master
+        with:
+          args: release messages
+
       - name: publish artifact to gpr
-        run: ./gradlew clean :spring-webflux-addons-starter:publish
+        run: ./gradlew :spring-webflux-addons-starter:publish
+

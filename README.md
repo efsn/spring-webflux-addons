@@ -13,7 +13,7 @@
 - [] remoteIP & sources
 - [x] webclient
 - [] unit test
-- [] deploy to repository centre(enough extension)
+- [x] deploy to repository centre(enough extension)
 - [] jacoco
 - [] mockk
 - [] wiremock
@@ -21,5 +21,6 @@
 ## Q&A
 - [x] how to add traceId?
 - [x] mdc
+
 
 
