@@ -33,15 +33,11 @@ class TestRoute {
                 ok().contentType(APPLICATION_JSON).bodyValueAndAwait(mapOf("${cmd.hi}" to "world"))
             }
 
-            POST("/log") {
-                val cmd = it.awaitBody<OrderCmd>()
+            GET("/log") {
+                val name = it.queryParam("name").orElse("x")
                 val body = webClient.get().uri("/orgs/octokit/repos").retrieve().awaitBody<JsonNode>()
                 ok().contentType(APPLICATION_JSON).bodyValueAndAwait(body)
             }
         }
     }
 }
-
-data class OrderCmd(
-  val name: String
-)
