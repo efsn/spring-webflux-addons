@@ -1,0 +1,127 @@
+[
+    {
+        "Id": "sha256:c1c0275de25b9a1e9aa9265c0afe3515870df019c14bc1df086c9f9eb3dc1973",
+        "RepoTags": [
+            "registry.cn-shanghai.aliyuncs.com/ikea_common_image/jenkins-slave:3.35-3"
+        ],
+        "RepoDigests": [
+            "registry.cn-shanghai.aliyuncs.com/ikea_common_image/jenkins-slave@sha256:cc295ef26116216b905f7ca1e633308bf3817917c1aea994c2cb47d4c6c87c65"
+        ],
+        "Parent": "",
+        "Comment": "",
+        "Created": "2019-09-26T21:08:40.122066164Z",
+        "Container": "44c1a311cc00849938d4fcb29dd1cb976b87dbdc32b105d975a1d9e7acf95e0d",
+        "ContainerConfig": {
+            "Hostname": "44c1a311cc00",
+            "Domainname": "",
+            "User": "jenkins",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/openjdk-8/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "JAVA_HOME=/usr/local/openjdk-8",
+                "JAVA_VERSION=8u222",
+                "JAVA_BASE_URL=https://github.com/AdoptOpenJDK/openjdk8-upstream-binaries/releases/download/jdk8u222-b10/OpenJDK8U-jdk_",
+                "JAVA_URL_VERSION=8u222b10",
+                "AGENT_WORKDIR=/home/jenkins/agent"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "#(nop) WORKDIR /home/jenkins"
+            ],
+            "ArgsEscaped": true,
+            "Image": "sha256:d45a1a9e73882043575e9eaecc631206d84457202612b1819e8053922b5698c9",
+            "Volumes": {
+                "/home/jenkins/.jenkins": {},
+                "/home/jenkins/agent": {}
+            },
+            "WorkingDir": "/home/jenkins",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {
+                "Description": "This is a base image, which provides the Jenkins agent executable (agent.jar)",
+                "Vendor": "Jenkins project",
+                "Version": "3.35"
+            }
+        },
+        "DockerVersion": "18.03.1-ee-3",
+        "Author": "Oleg Nenashev <o.v.nenashev@gmail.com>",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "jenkins",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/openjdk-8/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "JAVA_HOME=/usr/local/openjdk-8",
+                "JAVA_VERSION=8u222",
+                "JAVA_BASE_URL=https://github.com/AdoptOpenJDK/openjdk8-upstream-binaries/releases/download/jdk8u222-b10/OpenJDK8U-jdk_",
+                "JAVA_URL_VERSION=8u222b10",
+                "AGENT_WORKDIR=/home/jenkins/agent"
+            ],
+            "Cmd": [
+                "bash"
+            ],
+            "ArgsEscaped": true,
+            "Image": "sha256:d45a1a9e73882043575e9eaecc631206d84457202612b1819e8053922b5698c9",
+            "Volumes": {
+                "/home/jenkins/.jenkins": {},
+                "/home/jenkins/agent": {}
+            },
+            "WorkingDir": "/home/jenkins",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {
+                "Description": "This is a base image, which provides the Jenkins agent executable (agent.jar)",
+                "Vendor": "Jenkins project",
+                "Version": "3.35"
+            }
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 518061991,
+        "VirtualSize": 518061991,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/7e8b76d68c7d96f06df152eaf5f5c39ecfdaaecfc55492537f865dafab85ebbd/diff:/var/lib/docker/overlay2/f5bfd4a83aa47b574810c25f3266135e20ccf86f9f53fb3ca53875200194a4d0/diff:/var/lib/docker/overlay2/836d91a426b7a9d5af3d413fef15f1521a6dbe8d2c5d0c0d924fc548395b2f29/diff:/var/lib/docker/overlay2/e15eeeae526a3847f8c210dc10133b603277f344db3f27b08b0b83e082b51b7e/diff:/var/lib/docker/overlay2/7258d737d69dc935e3c76ee26c2724d34f2c302efb2028bb0860a61b32d9f495/diff:/var/lib/docker/overlay2/04563b81c8079c5149407d1489913d6ec5b4635f085842c1a0dc1aa1091ba929/diff:/var/lib/docker/overlay2/bb8c44eb475fe35d17bd0dc697de03dc78b660d9ccc7e73958a2148b1824c7c0/diff:/var/lib/docker/overlay2/6ab08eb635267534de2a7f4752e5b3fdf37836db813f5e1faa9f5aad9a1f4e7e/diff:/var/lib/docker/overlay2/e73e4d744ecfcb252c40463319e8ef1838bcf483708022448ad899d9e1754648/diff:/var/lib/docker/overlay2/a64cec74ae6a39547caf354d991f290600c5cec65707d48f2a1bf407cf7914a7/diff:/var/lib/docker/overlay2/f81b47ba30e4cddd41be8ff2c6d91ce64f23ca747cead56efea97573a0027022/diff:/var/lib/docker/overlay2/1496ffa7475234d61c819dbfdaf36109b037b0743f57f0b1c7b9482a8ae8027f/diff",
+                "MergedDir": "/var/lib/docker/overlay2/e8df9dbc223bbf0b3ac4fae1596d6f9f466f2a398968880f1d8a39997a2f78f3/merged",
+                "UpperDir": "/var/lib/docker/overlay2/e8df9dbc223bbf0b3ac4fae1596d6f9f466f2a398968880f1d8a39997a2f78f3/diff",
+                "WorkDir": "/var/lib/docker/overlay2/e8df9dbc223bbf0b3ac4fae1596d6f9f466f2a398968880f1d8a39997a2f78f3/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:55e6b89812f369277290d098c1e44c9e85a5ab0286c649f37e66e11074f8ebd1",
+                "sha256:26b1991f37bd5b798e1523f65d7f6aa6961b75515f465cf44123fa0ad3b8961b",
+                "sha256:8bacec4e34468110538ebf108ca8ec0d880a37018a55be91b9670b8e900c593a",
+                "sha256:2e669e0134f53839293f077f21dd124634f92aa5f7e3fd013c530779dd41d1c5",
+                "sha256:5a30999619d793135da20f07cef97d34e741dbae20364ad87803e7a26906b365",
+                "sha256:1690af51cb08c01e45b1ad3ea2d6e6ad68e6eaf88bd01b8725d21cb782849dac",
+                "sha256:57e6a3d20ce900546bb12f793c7c4057f87b7b509488f42c68d1772380e5e6e0",
+                "sha256:3f3993caf232a5eed355d1e2e693ce227ff211b86b96bbd2d777aef150fe4f1e",
+                "sha256:73e5827f4ac1c580d43218c2f2ebfa91049b344c7abbb3f51456bb94b760ca99",
+                "sha256:56f577f3fd65e8feca39d8b52681b5aba528790f1a49bdc1477e25101013ab6a",
+                "sha256:c915a4769e617ddeccab98c511a1ffd296758de212ee6db3b61c9f5eabb96d44",
+                "sha256:59fa2c271f1a2b35b109169a60ca610ba2869c1db621ef3366dafbb933e1f691",
+                "sha256:edd3ae180bfb8f592384c2e7d25c153d1d38bc664a8313bc7cfb7f6413377e9c"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    }
+]

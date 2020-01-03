@@ -1,4 +1,3 @@
-import io.spring.gradle.dependencymanagement.dsl.DependencyManagementExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
@@ -21,7 +20,6 @@ subprojects {
     apply(plugin = "kotlin")
     apply(plugin = "org.jetbrains.kotlin.plugin.spring")
     apply(plugin = "org.springframework.boot")
-    apply(plugin = "io.spring.dependency-management")
     apply(from = rootProject.file("gradle/ktlint.gradle.kts"))
 
     group = "cn.elmi.spring.webflux"
@@ -35,20 +33,15 @@ subprojects {
     dependencies {
         implementation(kotlin("stdlib-jdk8"))
         implementation(kotlin("reflect"))
+        implementation(platform(SpringBootPlugin.BOM_COORDINATES))
 
         implementation("org.slf4j:slf4j-api")
         implementation("ch.qos.logback:logback-core")
         implementation("ch.qos.logback:logback-classic")
 
         testImplementation("org.springframework.boot:spring-boot-starter-test")
-        testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.2")
-        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.5.2")
-    }
-
-    the<DependencyManagementExtension>().apply {
-        imports {
-            mavenBom(SpringBootPlugin.BOM_COORDINATES)
-        }
+        testImplementation("org.junit.jupiter:junit-jupiter-api")
+        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
     }
 
     tasks {
