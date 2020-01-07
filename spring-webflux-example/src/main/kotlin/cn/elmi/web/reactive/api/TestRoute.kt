@@ -34,7 +34,6 @@ class TestRoute {
             }
 
             GET("/log") {
-                val name = it.queryParam("name").orElse("x")
                 val body = webClient.get().uri("/orgs/octokit/repos").retrieve().awaitBody<JsonNode>()
                 ok().contentType(APPLICATION_JSON).bodyValueAndAwait(body)
             }

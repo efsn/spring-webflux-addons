@@ -8,7 +8,7 @@ import reactor.kotlin.core.publisher.toMono
 
 @RestController
 class TestAPI(
-    private val webClient: WebClient
+  private val webClient: WebClient
 ) {
 
     @PostMapping("/test")
